@@ -1,0 +1,1 @@
+Este proyecto es una pagina web de un ecommerce de venta de modelismo y miniaturas.
