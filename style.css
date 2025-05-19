@@ -3,13 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
-    h1{
-        text-align: center;
-        background-color: rgb(0, 0, 0);
-        color: #ffffff;
-    }
     header{
+        h1{
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            color: #ffffff;
+        }
     .nav-principal{
             display: flex;
             justify-content: center;
@@ -22,7 +23,61 @@ body{
                 text-decoration: none;
                 font-size: 1.1rem;
             }
+            a:hover{
+                text-decoration: underline;
+            }
         }  
     }
 
+}
+main{
+    img{
+        display: block;
+        margin: 0 auto;
+        max-width: 200px;
+    }
+}
+section{
+    text-align: center;
+    background-image: linear-gradient(to top, #0e0a3b, #1b1e51, #293168, #364580, #445a98, #3c69a7, #3378b4, #2887bf, #0091bd, #009ab6, #00a2ac, #34a8a1);
+
+    h2{
+        margin: 2rem;
+    }
+    .producto{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        justify-items: center;
+        justify-content: center;
+        
+
+        .en-muestra{
+            width: 300px;
+            height: auto;
+            border-radius: 0.5rem;
+            border: 1px solid;
+            overflow: hidden;
+            background-color: rgba(247, 247, 247, 0.581);
+
+            a{
+                display: block;
+                transition: transform 0.5s ease;
+            }
+
+            img{
+                width: 200px;
+                height: auto;
+            }
+
+        }
+
+        .en-muestra a :hover{
+            transform: scale(1.1);
+        }
+    }
+}
+footer{
+    background-color: #000000;
+    color: #ffffff;
 }
