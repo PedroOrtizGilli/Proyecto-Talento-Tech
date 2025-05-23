@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body{
     header{
         h1{
@@ -17,7 +16,6 @@ body{
             gap: 5rem;
             padding: 1rem;
             background-color: yellow;
-
             a{
                 color: black;
                 text-decoration: none;
@@ -28,30 +26,31 @@ body{
             }
         }  
     }
-
 }
 main{
     img{
         display: block;
         margin: 0 auto;
-        max-width: 200px;
+        max-width: 500px;
     }
 }
 section{
     text-align: center;
     background-image: linear-gradient(to top, #0e0a3b, #1b1e51, #293168, #364580, #445a98, #3c69a7, #3378b4, #2887bf, #0091bd, #009ab6, #00a2ac, #34a8a1);
-
     h2{
-        margin: 2rem;
+        margin: 3rem;
+        padding: 1rem;
+        font-size: 40px;
     }
     .producto{
+        margin: 0 auto;
+        width: 90%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
         justify-items: center;
         justify-content: center;
-        
-
+        padding-bottom: 5rem;
         .en-muestra{
             width: 300px;
             height: auto;
@@ -59,25 +58,41 @@ section{
             border: 1px solid;
             overflow: hidden;
             background-color: rgba(247, 247, 247, 0.581);
-
             a{
                 display: block;
                 transition: transform 0.5s ease;
             }
-
             img{
-                width: 200px;
+                width: 300px;
                 height: auto;
             }
-
         }
-
-        .en-muestra a :hover{
+        .en-muestra:hover{
             transform: scale(1.1);
+        }
+    }
+    @media(max-width: 1024px){
+        .producto{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media(max-width: 600px){
+        .producto{
+            grid-template-columns: 1fr;
+        }
+        .en-muestra{
+            width: 90%;
         }
     }
 }
 footer{
+    padding: 1rem;
+    text-align: center;
     background-color: #000000;
     color: #ffffff;
+    .contacto{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1rem;
+    }
 }
