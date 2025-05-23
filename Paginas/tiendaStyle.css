@@ -3,3 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-image: linear-gradient(to top, #0e0a3b, #1b1e51, #293168, #364580, #445a98, #3c69a7, #3378b4, #2887bf, #0091bd, #009ab6, #00a2ac, #34a8a1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    header{
+        h1{
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            font-size: 80px;
+        }
+        .buscador{
+            margin-left: 10%;
+            margin-top: 2%;
+        }
+    }
+}
