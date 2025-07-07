@@ -4,22 +4,48 @@
     box-sizing: border-box;
 }
 body{
-    background-image: linear-gradient(to top, #0e0a3b, #1b1e51, #293168, #364580, #445a98, #3c69a7, #3378b4, #2887bf, #0091bd, #009ab6, #00a2ac, #34a8a1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    margin: 0;
     header{
-        h1{
+        position: relative ;
+        .titulo-logo{
+            display: flex;
             background-color: #000;
-            color: #fff;
-            text-align: center;
-            font-size: 80px;
+            align-items: center;
+            justify-content: center;
+            .titulo{
+                color: #fff;
+                text-align: center;
+                font-size: 80px;
+            }
+            a{
+                .img{
+                    position: absolute;
+                    left: 10rem;
+                    top: 5%;
+                    max-width: 80px;
+                    max-height: 100px;
+                }
+            }
         }
         .buscador{
-            margin-left: 10%;
-            margin-top: 2%;
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            padding: 1rem;
+            background-color: yellow;
+            ul {
+                display: flex;
+                gap: 5rem;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            li a {
+                text-decoration: none;
+                color: black;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
         }
     }
 }

@@ -6,16 +6,19 @@
 body{
     header{
         h1{
-            text-align: center;
             background-color: rgb(0, 0, 0);
-            color: #ffffff;
+            text-align: center;
+            a{
+                text-decoration: none;
+                color: #ffffff;
+            }
         }
     .nav-principal{
             display: flex;
             justify-content: center;
             gap: 5rem;
             padding: 1rem;
-            background-color: yellow;
+            background-color: rgb(255, 196, 0);
             a{
                 color: black;
                 text-decoration: none;
@@ -23,6 +26,11 @@ body{
             }
             a:hover{
                 text-decoration: underline;
+            }
+            .carrito-img{
+                display: flex;
+                width: 50px;
+                left: 3rem;
             }
         }  
     }
@@ -32,13 +40,13 @@ main{
         display: block;
         margin: 0 auto;
         max-width: 500px;
+        margin-bottom: 1rem;
+        
     }
 }
 section{
     text-align: center;
-    background-image: linear-gradient(to top, #0e0a3b, #1b1e51, #293168, #364580, #445a98, #3c69a7, #3378b4, #2887bf, #0091bd, #009ab6, #00a2ac, #34a8a1);
     h2{
-        margin: 3rem;
         padding: 1rem;
         font-size: 40px;
     }
@@ -55,16 +63,37 @@ section{
             width: 300px;
             height: auto;
             border-radius: 0.5rem;
-            border: 1px solid;
             overflow: hidden;
-            background-color: rgba(247, 247, 247, 0.581);
+            background-color: rgba(247, 247, 247, 0);
+            transition: 0.5s;
             a{
                 display: block;
-                transition: transform 0.5s ease;
+                transition: transform 0.5s;
+                text-decoration: none;
             }
             img{
                 width: 300px;
                 height: auto;
+            }
+            h3{
+                color: #000000;
+            }
+            p{
+                color: #000000;
+            }
+            .boton-comprar{
+                background-color: #000000;
+                color: #ffffff;
+                border: none;
+                padding: 15px 30px;
+                font-size: 18px;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+            }
+            .boton-comprar:hover{
+                background-color: yellow;
+                color: #000000;
             }
         }
         .en-muestra:hover{
@@ -85,6 +114,45 @@ section{
         }
     }
 }
+
+.formulario{
+    h2{
+        text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    form{
+        align-items: center;
+        margin-top: 20px;
+        input[type="text"]{
+            width: 200px;
+            gap: 3rem;
+            margin-bottom: 1rem;
+        }
+        input[type="email"]{
+            width: 300px;
+            gap: 3rem;
+            margin-bottom: 1rem;
+        }
+        label{
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            label[for="mensaje"]{
+                text-align: top;
+            }
+        }
+        textarea{
+            width: 300px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        input[type="submit"]{
+            margin-bottom: 1rem;
+        }
+
+    }
+}
+
+
 footer{
     padding: 1rem;
     text-align: center;
