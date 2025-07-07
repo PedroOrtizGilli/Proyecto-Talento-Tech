@@ -3,35 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root{
+    --color-texto: black;
+    --color-fondo: rgb(255, 196, 0);
+}
+
 body{
     header{
-        position: relative ;
-        .titulo-logo{
-            display: flex;
-            background-color: #000;
-            align-items: center;
-            justify-content: center;
-            .titulo{
-                color: #fff;
-                text-align: center;
-                font-size: 80px;
-            }
-            a{
-                .img{
-                    position: absolute;
-                    left: 10rem;
-                    top: 5%;
-                    max-width: 80px;
-                    max-height: 100px;
-                }
-            }
-        }
         .buscador{
             display: flex;
             justify-content: center;
             gap: 5rem;
             padding: 1rem;
-            background-color: yellow;
+            background-color: var(--color-fondo);
             ul {
                 display: flex;
                 gap: 5rem;
@@ -41,7 +26,7 @@ body{
             }
             li a {
                 text-decoration: none;
-                color: black;
+                color: var(--color-texto);
             }
             a:hover{
                 text-decoration: underline;

@@ -14,6 +14,7 @@ body{
             }
         }
     .nav-principal{
+            position: relative;
             display: flex;
             justify-content: center;
             gap: 5rem;
@@ -31,6 +32,16 @@ body{
                 display: flex;
                 width: 50px;
                 left: 3rem;
+            }
+            #cuenta-carrito{
+                position: absolute;
+                background-color: red;
+                border-radius: 100%;
+                display: inline-block;
+                width: 20px;
+                aspect-ratio: 1;
+                text-align: center;
+                line-height: 20px;
             }
         }  
     }
