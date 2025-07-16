@@ -31,6 +31,100 @@ body{
             a:hover{
                 text-decoration: underline;
             }
+            .carrito-img{
+                display: flex;
+                width: 50px;
+                left: 3rem;
+            }
+            #cuenta-carrito{
+                position: absolute;
+                background-color: red;
+                border-radius: 100%;
+
+                width: 20px;
+                aspect-ratio: 1;
+                text-align: center;
+                line-height: 20px;
+                transform: translate(50%, -50%);
+                right: 0;
+                top: 0;
+                align-items: center;
+            }
+        }
+    }
+}
+
+section{
+    text-align: center;
+    h2{
+        padding: 1rem;
+        font-size: 40px;
+    }
+    .producto{
+        margin: 0 auto;
+        margin-top: 100px;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        justify-items: center;
+        justify-content: center;
+        padding-bottom: 5rem;
+        .en-muestra-accesorio, .en-muestra-miniatura{
+            width: 300px;
+            height: auto;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            background-color: rgba(247, 247, 247, 0);
+            transition: 0.5s;
+            a{
+                display: block;
+                transition: transform 0.5s;
+                text-decoration: none;
+            }
+            img{
+                width: 300px;
+                height: auto;
+            }
+            h3{
+                color: #000000;
+            }
+            p{
+                color: #000000;
+            }
+            .boton-comprar{
+                background-color: #000000;
+                color: #ffffff;
+                border: none;
+                padding: 15px 30px;
+                font-size: 18px;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+            }
+            .boton-comprar:hover{
+                background-color: yellow;
+                color: #000000;
+            }
+        }
+        .en-muestra-accesorio:hover{
+            transform: scale(1.1);
+        }
+        .en-muestra-miniatura:hover{
+            transform: scale(1.1);
+        }
+    }
+    @media(max-width: 1024px){
+        .producto{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media(max-width: 600px){
+        .producto{
+            grid-template-columns: 1fr;
+        }
+        .en-muestra{
+            width: 90%;
         }
     }
 }
