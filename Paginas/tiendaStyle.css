@@ -11,6 +11,11 @@
 
 body{
     header{
+        h1{
+            background-color: #000000;
+            color: white;
+            text-align: center;
+        }
         .buscador{
             display: flex;
             justify-content: center;
@@ -30,6 +35,10 @@ body{
             }
             a:hover{
                 text-decoration: underline;
+            }
+            .carrito-contenedor {
+                position: relative;
+                display: inline-block;
             }
             .carrito-img{
                 display: flex;
