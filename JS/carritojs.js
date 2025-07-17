@@ -1,5 +1,5 @@
 
-
+// Carga el carrito desde el localStorage al cargar la página
 function cargarCarritoDesdeStorage() {
     const cuenta = localStorage.getItem('cuentaCarrito') || 0;
     document.getElementById('cuenta-carrito').textContent = cuenta;
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalElemento = document.getElementById('total');
 
     let productos = JSON.parse(localStorage.getItem('productosCarrito')) || [];
-
+    // Si el carrito está vacío, muestra un mensaje
     if (productos.length === 0) {
         contenedor.innerHTML = '<p>No hay productos en el carrito.</p>';
         totalElemento.textContent = 'Total: $0';
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let total = 0;
-
+    // Crea el elemento para cada producto en el carrito
     productos.forEach((producto, index) => {
     const item = document.createElement('div');
     item.classList.add('item-carrito');
@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
     contenedor.appendChild(item);
+
+    // Agregar eventos a los botones de sumar y restar
     document.querySelectorAll('.sumar').forEach(btn => {
         btn.addEventListener('click', () => {
             const index = btn.getAttribute('data-index');
@@ -82,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
             location.reload();
         });
     });
-
     document.querySelectorAll('.restar').forEach(btn => {
         btn.addEventListener('click', () => {
             const index = btn.getAttribute('data-index');
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             location.reload();
         });
     });
-
+    // Calcular el total
     const precioNumerico = parseInt(producto.precio.replace(/\D/g, ''));
     total += precioNumerico * producto.cantidad;
     });
