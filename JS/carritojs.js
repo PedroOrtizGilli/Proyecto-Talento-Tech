@@ -28,7 +28,14 @@ function actualizarCuentaCarrito() {
 
             //Guardarlo en una lista de productos
             let productosEnCarrito = JSON.parse(localStorage.getItem('productosCarrito')) || [];
-            productosEnCarrito.push({ nombre, precio, imagen });
+
+            // Buscamos si el producto ya está en el carrito
+            let productoExistente = productosEnCarrito.find(p => p.nombre === nombre);
+            if (productoExistente) {
+                productoExistente.cantidad += 1;
+            } else {
+                productosEnCarrito.push({ nombre, precio, imagen, cantidad: 1 });
+            }
             localStorage.setItem('productosCarrito', JSON.stringify(productosEnCarrito));
         });
     });
@@ -53,19 +60,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let total = 0;
 
-    productos.forEach(producto => {
-        const item = document.createElement('div');
-        item.classList.add('item-carrito');
-        item.innerHTML = `
-            <img src="${producto.imagen}" alt="${producto.nombre}" width="100">
-            <h3>${producto.nombre}</h3>
-            <p>${producto.precio}</p>
-        `;
-        contenedor.appendChild(item);
+    productos.forEach((producto, index) => {
+    const item = document.createElement('div');
+    item.classList.add('item-carrito');
+    item.innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.nombre}" width="100">
+        <h3>${producto.nombre}</h3>
+        <p>${producto.precio}</p>
+        <div>
+            <button class="restar" data-index="${index}">-</button>
+            <span class="cantidad">${producto.cantidad}</span>
+            <button class="sumar" data-index="${index}">+</button>
+        </div>
+    `;
+    contenedor.appendChild(item);
+    document.querySelectorAll('.sumar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const index = btn.getAttribute('data-index');
+            productos[index].cantidad++;
+            localStorage.setItem('productosCarrito', JSON.stringify(productos));
+            location.reload();
+        });
+    });
 
-        // Sumar el precio
-        const precioNumerico = parseInt(producto.precio.replace(/\D/g, ''));
-        total += precioNumerico;
+    document.querySelectorAll('.restar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const index = btn.getAttribute('data-index');
+            productos[index].cantidad--;
+            localStorage.removeItem('productosCarrito');
+            localStorage.removeItem('cuentaCarrito');
+            if (productos[index].cantidad <= 0) {
+                productos.splice(index, 1);
+            }
+            localStorage.setItem('productosCarrito', JSON.stringify(productos));
+            location.reload();
+        });
+    });
+
+    const precioNumerico = parseInt(producto.precio.replace(/\D/g, ''));
+    total += precioNumerico * producto.cantidad;
     });
 
     totalElemento.textContent = `Total: $${total}`;

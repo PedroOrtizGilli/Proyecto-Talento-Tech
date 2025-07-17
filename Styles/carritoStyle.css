@@ -22,3 +22,20 @@ body{
         }  
     }
 }
+main{
+    padding-top: 100px;
+    text-align: center;
+    .item-carrito {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        padding: 1rem 0;
+    }
+    
+    img {
+        border-radius: 10px;
+    }
+}
