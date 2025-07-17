@@ -1,3 +1,5 @@
+
+// Filtrar productos por tipo
 document.addEventListener("DOMContentLoaded", () => {
     const btnMiniaturas = document.getElementById("mostrar-minis");
     const btnAccesorios = document.getElementById("mostrar-accesorios");
