@@ -8,7 +8,7 @@ function cargarCarritoDesdeStorage() {
 function actualizarCuentaCarrito() {
     let botonesComprar = document.getElementsByClassName('boton-comprar');
 
-    //Nos aseguramos de que cargue lo que ya estaba en el carrito (por si se actualizó)
+    //Aseguramos de que cargue lo que ya estaba en el carrito (por si se actualizó)
     cargarCarritoDesdeStorage();
 
     //Convertimos el HTMLCollection a array para usar forEach
@@ -29,7 +29,7 @@ function actualizarCuentaCarrito() {
             //Guardarlo en una lista de productos
             let productosEnCarrito = JSON.parse(localStorage.getItem('productosCarrito')) || [];
 
-            // Buscamos si el producto ya está en el carrito
+            // Busco si el producto ya está en el carrito
             let productoExistente = productosEnCarrito.find(p => p.nombre === nombre);
             if (productoExistente) {
                 productoExistente.cantidad += 1;
