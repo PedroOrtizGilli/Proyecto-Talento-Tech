@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miniatures&Paints</title>
+
+    <link rel="stylesheet" href="../Styles/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1 class="nombre-ecommerce">Miniatures & Paints</h1>
+        <nav class="nav-principal">
+            <a href="../docs/tienda.html">Tienda</a>
+            <a href="../docs/carrito.html"><img src="../Assets/img/carrito.webp" alt="" class="carrito-img"><span id="cuenta-carrito">0</span></a>
+        </nav>
+    </header>
+    <br>
+    <section>
+        <h2>Productos destacados</h2>
+        <div class="producto">
+            <div class="en-muestra en-muestra-miniatura">
+                <a href="">
+                    <h3>Starter Set 40k</h3>
+                    <img src="../Assets/img/Set-completo.png" alt="Set inicio Warhammer 40k">
+                    <p>Precio : $300000</p>
+                </a> 
+                <button class="boton-comprar">Comprar</button>
+            </div>
+
+            <div class="en-muestra en-muestra-accesorio">
+                <a href="">
+                    <h3>Vallejo Model Color Rojo Vermellon</h3>
+                    <img src="../Assets/img/VallejoRojoVermellon.jpg" alt="Pintura acrilica Vallejo Rojo Vermellon">
+                    <p>Precio : $11000</p>
+                </a>
+                <button class="boton-comprar">Comprar</button>
+            </div>
+
+            <div class="en-muestra en-muestra-accesorio">
+                <a href="">
+                    <h3>Set pinceles Kolinsky</h3>
+                    <img src="../Assets/img/PincelesKolinski.png" alt="Set pinceles Kolinsky">
+                    <p>Precio : $30000</p>
+                </a>
+                <button class="boton-comprar">Comprar</button>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <img src="../Assets/img/icono.png" alt="Logotipo de la empresa">
+    </main>
+
+    <section class="formulario">
+        <h2>Si tenes alguna duda o consulta no dudes en escribirnos</h2>
+        <form action="" method="post" onsubmit="event.preventDefault(); alert('Formulario enviado');">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Escribe tu email"><br>
+            <div class="text-area">
+                <label for="mensaje">Mensaje:</label>   
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje"></textarea><br>
+            </div>
+            <input type="submit" value="Enviar" class="boton-enviar">
+        </form>
+    </section>
+
+
+    <footer>
+        2025 Miniatures and Paints - Todos los derechos reservados - Talento Tech
+        <br><br>
+        <div class="contacto">
+            <p>Telefono:  +54 9 11-2233-4455</p>
+            <p>mail: M&P@gmail.com</p>
+        </div>
+    </footer>
+
+        <script src="../docs/JS/main.js"></script>   
+        <script src="../docs/JS/carritojs.js"></script>
+</body>
+</html>
