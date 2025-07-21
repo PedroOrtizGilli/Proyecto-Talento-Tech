@@ -1,4 +1,3 @@
-
 // Carga el carrito desde el localStorage al cargar la página
 function cargarCarritoDesdeStorage() {
     const cuenta = localStorage.getItem('cuentaCarrito') || 0;
@@ -51,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalElemento = document.getElementById('total');
 
     let productos = JSON.parse(localStorage.getItem('productosCarrito')) || [];
+    console.log(productos);
     // Si el carrito está vacío, muestra un mensaje
     if (productos.length === 0) {
         contenedor.innerHTML = '<p>No hay productos en el carrito.</p>';
@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Calcular el total
         const precioNumerico = parseInt(producto.precio.replace(/\D/g, ''));
         total += precioNumerico * producto.cantidad;
+
     });
 
     // Agregar eventos a los botones de sumar y restar
@@ -99,23 +100,30 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.restar').forEach(btn => {
         btn.addEventListener('click', () => {
             const index = btn.getAttribute('data-index');
+            if (!productos[index]) return; // Evitar errores si el carrito está vacío
+            console.log(index);
+            console.log(productos);
             productos[index].cantidad--;
             localStorage.removeItem('productosCarrito');
             localStorage.removeItem('cuentaCarrito');
             if (productos[index].cantidad <= 0) {
                 productos.splice(index, 1);
+                // Eliminar el elemento del DOM
+                btn.parentElement.parentElement.remove();
+            } else {
+                 btn.parentElement.querySelector('.cantidad').textContent = productos[index].cantidad;
             }
             localStorage.setItem('productosCarrito', JSON.stringify(productos));
             //location.reload(); -> esto causa duplicación
-
+            
             // Actualizar cantidad en pantalla
-            btn.parentElement.querySelector('.cantidad').textContent = productos[index].cantidad;
 
             // Recalcular el total sin recargar
             actualizarTotal();
         });
     });
     totalElemento.textContent = `Total: $${total}`;
+    console.log(productos);
     
     function actualizarTotal() {
         let total = 0;
