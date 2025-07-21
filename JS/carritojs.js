@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let total = 0;
     // Crea el elemento para cada producto en el carrito
     productos.forEach((producto, index) => {
-    const item = document.createElement('div');
-    item.classList.add('item-carrito');
-    item.innerHTML = `
+        const item = document.createElement('div');
+        item.classList.add('item-carrito');
+        item.innerHTML = `
         <img src="${producto.imagen}" alt="${producto.nombre}" width="100">
         <h3>${producto.nombre}</h3>
         <p>${producto.precio}</p>
@@ -73,7 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="sumar" data-index="${index}">+</button>
         </div>
     `;
-    contenedor.appendChild(item);
+        contenedor.appendChild(item);
+        // Calcular el total
+        const precioNumerico = parseInt(producto.precio.replace(/\D/g, ''));
+        total += precioNumerico * producto.cantidad;
+    });
 
     // Agregar eventos a los botones de sumar y restar
     document.querySelectorAll('.sumar').forEach(btn => {
@@ -81,9 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = btn.getAttribute('data-index');
             productos[index].cantidad++;
             localStorage.setItem('productosCarrito', JSON.stringify(productos));
-            location.reload();
+            //location.reload(); -> esto causa duplicación
+
+            // Actualizar cantidad en pantalla
+            btn.parentElement.querySelector('.cantidad').textContent = productos[index].cantidad;
+
+            // Recalcular el total sin recargar
+            actualizarTotal();
+
         });
     });
+
     document.querySelectorAll('.restar').forEach(btn => {
         btn.addEventListener('click', () => {
             const index = btn.getAttribute('data-index');
@@ -94,15 +106,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 productos.splice(index, 1);
             }
             localStorage.setItem('productosCarrito', JSON.stringify(productos));
-            location.reload();
+            //location.reload(); -> esto causa duplicación
+
+            // Actualizar cantidad en pantalla
+            btn.parentElement.querySelector('.cantidad').textContent = productos[index].cantidad;
+
+            // Recalcular el total sin recargar
+            actualizarTotal();
         });
     });
-    // Calcular el total
-    const precioNumerico = parseInt(producto.precio.replace(/\D/g, ''));
-    total += precioNumerico * producto.cantidad;
-    });
-
     totalElemento.textContent = `Total: $${total}`;
+    
+    function actualizarTotal() {
+        let total = 0;
+        productos.forEach(producto => {
+            const precio = parseFloat(producto.precio.replace(/[^\d.]/g, ''));
+            total += precio * producto.cantidad;
+        });
+        document.getElementById('total').textContent = `Total: $${total}`;
+    }
 });
 
 

@@ -59,7 +59,7 @@
 
     <section class="formulario">
         <h2>Si tenes alguna duda o consulta no dudes en escribirnos</h2>
-        <form action="" method="post">
+        <form action="" method="post" onsubmit="event.preventDefault(); alert('Formulario enviado');">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
             <label for="email">Email:</label>
@@ -82,7 +82,7 @@
         </div>
     </footer>
 
-
+        <script src="../JS/main.js"></script>   
         <script src="../JS/carritojs.js"></script>
 </body>
 </html>
